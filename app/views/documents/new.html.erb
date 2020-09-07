@@ -1,0 +1,17 @@
+<div class="col-6 offset-3">
+  <h1 class="text-center">Remplis les informations</h1>
+  <%= simple_form_for @document do |f| %>
+    <%= f.input :first_name, label: "Ton prénom" %>
+    <%= f.input :last_name, label: "Ton nom" %>
+    <%= f.input :company, label: "La boite dans laquelle tu as effectué ton V.I" %>
+    <%= f.input :work, label: "Énoncé de ton poste" %>
+    <%= f.input :work_type, collection: Document::WORK_TYPE, label: "Type de contrat" %>
+    <%= f.input :start_date, label: "Date à laquelle tu as commencé ton V.I" %>
+    <%= f.input :end_date, label: "Date à laqeulle tu as terminé ton V.I" %>
+    <%= f.input :old_company, label: "Ton dernier employeur avant ton V.I" %>
+    <%= f.input :old_work, label: "Intitulé de ton ancien poste" %>
+    <%= f.input :old_start_date, label: "Date de début de ton ancien poste" %>
+    <%= f.input :old_end_date, label: "Date de fin de ton ancien poste"%>
+    <%= f.submit "Gratte ton chômage !" %>
+  <% end %>
+</div>
