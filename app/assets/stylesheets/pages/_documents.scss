@@ -1,6 +1,7 @@
 .container {
   background-color: white;
   margin-top: 10vh;
+  margin-bottom: 10vh;
   width: 21cm;
   box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
   padding: 2cm;
@@ -24,4 +25,9 @@ h3 {
 h4 {
   font-size: 14px;
   font-weight: bold;
+}
+
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
 }
