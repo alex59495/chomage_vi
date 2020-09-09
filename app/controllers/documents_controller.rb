@@ -1,5 +1,5 @@
 class DocumentsController < ApplicationController
-  
+
   def show
     @document = Document.find(params[:id])
     @duration = (@document.end_date - @document.start_date).to_i/30

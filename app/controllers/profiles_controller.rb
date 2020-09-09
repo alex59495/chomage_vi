@@ -1,24 +1,14 @@
 class ProfilesController < ApplicationController
 
-  def show
-    @profile = Profile.find(params[:id])
-  end
-
   def new
     @profile = Profile.new
   end
 
-
- def create
-    @profile = Profile.new(params_profile)
-    if @profile.save
-      if @profile.profile_type == Profile::PROFILE_TYPE[1]
-        redirect_to new_document_path(@document)
-      else
-        redirect_to error_path
-      end
+  def create
+    if params_profile.include?("Je travaillais")
+      redirect_to new_document_path
     else
-      render(:new)
+      redirect_to error_path
     end
   end
 
@@ -26,7 +16,9 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  # array of the check_boxes selected for the profile
   def params_profile
-    params.require(:profile).permit(:profile_type)
+    params.require(:profile).require(:profile_type)
   end
 end
