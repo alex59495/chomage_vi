@@ -1,4 +1,5 @@
 <div class="col-6 offset-3">
+<% console %>
   <h1 class="text-center">Remplis les informations</h1>
   <%= simple_form_for @document do |f| %>
     <%= f.input :first_name, label: "Ton prénom" %>
@@ -12,6 +13,9 @@
     <%= f.input :old_work, label: "Intitulé de ton ancien poste" %>
     <%= f.input :old_start_date, label: "Date de début de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :old_end_date, label: "Date de fin de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"}%>
+    <% if @info_preliminaire.chomage == "Oui" %>
+      <%= f.input :chomage_start_date, label: "Date de début de ton chomage", as: :string, required: false, input_html: {class: "datepicker"} %>
+    <% end %>
     <%= f.submit "Gratte ton chômage !" %>
   <% end %>
 </div>

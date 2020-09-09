@@ -15,6 +15,7 @@ class Document < ApplicationRecord
   validate :end_date_cannot_be_in_before_start_date
   validate :old_end_date_cannot_be_in_after_start_date
   validate :end_date_cannot_be_too_big
+  belongs_to :info_preliminaire
 
   def start_date_cannot_be_in_the_future
     if start_date > Date.today
@@ -22,6 +23,9 @@ class Document < ApplicationRecord
     end
     if old_start_date > Date.today
       errors.add(:old_start_date, "can't be in the future")
+    end
+    if chomage_start_date > Date.today
+      errors.add(:chomage_start_date, "can't be in the future")
     end
   end
 

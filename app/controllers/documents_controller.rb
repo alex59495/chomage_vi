@@ -18,11 +18,13 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    @info_preliminaire = InfoPreliminaire.last
     @document = Document.new
   end
 
   def create
     @document = Document.new(params_document)
+    @document.info_preliminaire = InfoPreliminaire.last
     if @document.save
       redirect_to document_path(@document, format: :pdf)
     else
@@ -34,6 +36,6 @@ class DocumentsController < ApplicationController
   def params_document
     params.require(:document).permit(:first_name, :last_name,
     :company, :work, :work_type, :start_date, :end_date, :old_work,
-    :old_company, :old_start_date, :old_end_date)
+    :old_company, :old_start_date, :old_end_date, :chomage_start_date)
   end
 end
