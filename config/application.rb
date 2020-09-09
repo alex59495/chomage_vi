@@ -8,6 +8,8 @@ Bundler.require(*Rails.groups)
 
 module ChomageVi
   class Application < Rails::Application
+    config.i18n.default_locale = :fr
+
     config.generators do |generate|
       generate.assets false
       generate.helper false
