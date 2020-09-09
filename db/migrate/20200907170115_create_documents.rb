@@ -6,7 +6,7 @@ class CreateDocuments < ActiveRecord::Migration[6.0]
       t.string :company
       t.string :work
       t.date :start_date
-      t.datetime :end_date
+      t.date :end_date
       t.date :old_start_date
       t.date :old_end_date
       t.string :old_work

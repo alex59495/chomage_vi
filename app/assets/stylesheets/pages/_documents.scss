@@ -1,0 +1,33 @@
+.container {
+  background-color: white;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  width: 21cm;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  padding: 2cm;
+  font-size: 12px;
+  text-align: justify;
+  line-height: 2;
+}
+
+.title {
+  text-align: center;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+h4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+}

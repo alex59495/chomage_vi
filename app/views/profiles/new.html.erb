@@ -1,0 +1,7 @@
+<div class="col-6 offset-3">
+  <h1 class="text-center">Que faisais-tu lors des deux années qui ont précédé ton VI?</h1>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :profile_type, collection: Profile::PROFILE_TYPE, as: :check_boxes, label: "Mon profil" %>
+    <%= f.submit "Gratte ton chômage !" %>
+  <% end %>
+</div>
