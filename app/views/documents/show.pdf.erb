@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="title">
+    <h1>Dossier Retour V.I (Volontariat International)</h1>
+    <h3>- Demande de réouverture des droits au chômage -</h3>
+  </div>
+
+  <br>
+  <h4>1.	Qu’est-ce que le Volontariat International ?</h4>
+  <div>
+    Être Volontaire International (V.I), c’est partir pour une mission professionnelle à l'étranger tout en bénéficiant d’un statut public protecteur. Le V.I est placé sous la tutelle de l’Ambassade de France et est défini dans <b>loi numéro 2010-241 du 10 mars 2010</b>.
+    <br>
+    De 6 à 24 mois, les missions s’effectuent :
+    <ul>
+      <li>en entreprise, </li>
+      <li>au sein d’une structure française, publique ou para-publique, relevant du Ministère des Affaires Etrangères et du Développement International ou du Ministère de l’Economie,</li>
+      <li>dans une structure publique locale étrangère (centres de recherche et universités publiques),</li>
+      <li>auprès d’organisations internationales ou d’associations agréées.</li>
+    </ul>
+    Le Volontariat International n'est pas du bénévolat. Les V.I perçoivent mensuellement une indemnité forfaitaire variable suivant le pays d’affectation.
+    <br>
+    Destiné principalement aux étudiants, jeunes diplômés, ou chercheurs d’emploi, de 18 à 28 ans, le Volontariat International est une expérience professionnelle enrichissante, véritable tremplin pour une carrière internationale.
+  </div>
+  <br>
+
+  <h4>2.	Mon contrat V.I</h4>
+  Pour ma part j’ai effectué mon V.I au sein de <%= @document.company %> pendant <b><%= @duration %> mois entre </b><%= "#{@document.start_date.strftime("%B")} #{@document.start_date.year} et #{@document.end_date.strftime("%B")} #{@document.end_date.year}" %> en tant que <%= @document.work_type %> : « <%= @document.work %> ».
+  <br>
+  Mon contrat V.I a donc pris fin au <b><%= (@document.end_date + 1).strftime("%e %B %Y") %> </b>(cf Certificat d’accomplissement de volontariat civil à l’étranger).
+
+  <br><br>
+  <h4>3.	Le V.I reconnu comme service civique</h4>
+  L’article <b><a href="https://www.legifrance.gouv.fr/affichTexteArticle.do%3Bjsessionid=0130D5D4CD530287344756629CF11FFE.tplgfr36s_2?idArticle=JORFARTI000021954342&cidTexte=JORFTEXT000021954325&dateTexte=29990101&categorieLien=id">L.120-1 de la loi n° 2010-241 du 10 mars 2010 </a></b>précise que le Volontariat International est reconnu comme un <b>service civique</b> :
+  <br>
+  <i>« Le service civique peut également prendre les formes suivantes : […]
+  <br>
+   « 2o Le volontariat international en administration et le volontariat international en entreprise mentionnés au chapitre II du titre II du présent livre, le volontariat de solidarité internationale régi par la loi no 2005-159 du 23 février 2005 relative au contrat de volontariat de solidarité internationale ou le service volontaire européen défini par la décision no 1031/2000/CE du Parlement européen et du Conseil, du 13 avril 2000, établissant le programme d’action communautaire “Jeunesse” et par la décision no 1719/2006/CE du Parlement européen et du Conseil, du 15 novembre 2006, établissant le programme “Jeunesse en action” pour la période 2007-2013. »</i>
+
+  <br><br>
+  <h4>4.	Le versement des droits à indemnisation antérieurement acquis</h4>
+  Le service civique <b>permet de « geler »</b> les droits au chômage durant la durée du V.I quand bien même celui-ci fait suite à une rupture de contrat de travail.
+  <br>Le Titre 1, chapitre 2, article 7 du <b>Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage</b> précise que :
+  <br>
+  <i>« La période de douze mois est allongée des périodes durant lesquelles ont été accomplies des obligations contractées à l'occasion du service national, en application des <a href= "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000006555907&dateTexte=&categorieLien=cid">  premiers et deuxièmes alinéas de l'article L. 111-2 du code du service national</a>, et de la durée des missions accomplies dans le cadre d'un ou plusieurs contrats de service civique, dans ses différentes formes possibles, dans les conditions prévues à l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000021956514&dateTexte=&categorieLien=cid"> L. 120-1 du même code ».</a></i><br>
+  Le versement de mes droits à indemnisation antérieurement acquis à mon V.I, est suspendu pendant la durée de la mission et reprend au terme de celle-ci. La mission n’a pas d’impact sur le montant et la durée des allocations chômage.
+
+  <br><br>
+  <h4>5.	Démission légitime pour conclure un V.I</h4>
+  Ma démission de mon ancien contrat de travail pour effectuer ce V.I est considérée comme <b>légitime</b> (et donc ouvrant des droits au chômage) car il est indiqué au Titre 1, chapitre 2, article 2 du <b>Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage</b> :<br>
+
+  <i>« Sont assimilés à des salariés involontairement privés d'emploi au sens de l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903823&dateTexte=&categorieLien=cid">L. 5422-1 du code du travail</a>, et ont donc également droit à l'allocation d'aide au retour à l'emploi, les salariés dont la cessation du contrat de travail résulte d'un des cas de démission légitime suivants : […]
+
+  <br>
+  o. La démission du salarié qui quitte son emploi pour conclure un contrat de service civique au sens de l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000021956514&dateTexte=&categorieLien=cid">L. 120-1 du code du service national</a>. »
+  </i>
+
+  <br>
+  L’article L.120-10 de la <b>loi n°2010-241 du 10 mars 2010 </b>précise aussi que :
+  <br>
+  <i> « La rupture de son contrat de travail, à l’initiative du salarié, aux fins de souscrire un contrat de service civique, ne peut avoir pour effet de le priver de ses droits à l’assurance chômage à l’issue de son service civique ».</i>
+
+  <br><br>
+  <h4>6.	Le détail de mes droits à indemnisation acquis antérieurement à ce V.I</h4>
+  <div>
+    Entre le <b><%= "#{@document.old_start_date.strftime("%e %B %Y")} et le #{@document.old_end_date.strftime("%e %B %Y")}" %></b>, j’ai travaillé en tant que <%= @document.old_work %> au sein de <%= @document.old_company %>. (cf. attestation d’employeur destinée à Pôle emploi).
+    <br>
+    J’ai donc cotisé au chômage sur cette période (<%= "#{@document.old_start_date.year}-#{@document.old_end_date.year}" %>) pour laquelle je peux, aujourd’hui, recevoir des allocations chômages.
+  </div>
+
+  <br>
+  <div>
+    Dans l’état, je vous prie de bien vouloir réactiver mes droits au chômage suite à la fin de mon Volontariat International.
+  </div>
+
+  <br>
+  <div>Bien cordialement,</div>
+
+  <br>
+  <div><%= "#{@document.first_name} #{@document.last_name}" %></div>
+</div>
