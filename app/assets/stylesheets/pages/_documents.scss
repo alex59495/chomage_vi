@@ -1,4 +1,4 @@
-.container {
+.document-container {
   background-color: white;
   margin-top: 10vh;
   margin-bottom: 10vh;
@@ -27,7 +27,17 @@ h4 {
   font-weight: bold;
 }
 
+.container {
+  background-image: url("background2.jpg");
+  background-position: cover;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 body {
-  background-image: url("background.jpg");
-  background-size: cover;
+  background-color: $misty-rose;
 }
