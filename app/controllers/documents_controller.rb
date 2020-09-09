@@ -3,6 +3,18 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @duration = (@document.end_date - @document.start_date).to_i/30
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render(
+          pdf: 'document',
+          enable_local_file_access: true,
+          encoding: 'utf8',
+          template: 'documents/show.pdf.erb',
+          layout: 'pdf.html.erb'
+        )  # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new
@@ -12,7 +24,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params_document)
     if @document.save
-      redirect_to document_path(@document)
+      redirect_to document_path(@document, format: :pdf)
     else
       render(:new)
     end
