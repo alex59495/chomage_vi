@@ -7,7 +7,7 @@
     <%= f.input :work, label: "Énoncé de ton poste" %>
     <%= f.input :work_type, collection: Document::WORK_TYPE, label: "Type de contrat" %>
     <%= f.input :start_date, label: "Date à laquelle tu as commencé ton V.I", as: :string, required: false, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date, label: "Date à laqeulle tu as terminé ton V.I", as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_date, label: "Date à laquelle tu as terminé ton V.I", as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :old_company, label: "Ton dernier employeur avant ton V.I" %>
     <%= f.input :old_work, label: "Intitulé de ton ancien poste" %>
     <%= f.input :old_start_date, label: "Date de début de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"} %>
