@@ -9,12 +9,12 @@ class Document < ApplicationRecord
   validates :end_date, presence: true
   validates :old_company, presence: true
   validates :old_work, presence: true
-  validates :old_start_date, presence: true
-  validates :old_end_date, presence: true
   validate :start_date_cannot_be_in_the_future
   validate :end_date_cannot_be_in_before_start_date
   validate :old_end_date_cannot_be_in_after_start_date
   validate :end_date_cannot_be_too_big
+  validate :chomage_start_date_cannot_be_after_end_old_date
+  belongs_to :info_preliminaire
 
   def start_date_cannot_be_in_the_future
     if start_date.present? && start_date > Date.today 
@@ -23,9 +23,12 @@ class Document < ApplicationRecord
     if old_start_date.present? && old_start_date > Date.today
       errors.add(:old_start_date, "ne peut pas être une date future")
     end
+    if chomage_start_date.present? && chomage_start_date > Date.today
+      errors.add(:chomage_start_date, "ne peut pas être une date future")
+    end
   end
 
-  def end_date_cannot_be_in_before_start_date
+  def end_date_cannot_be_before_start_date
     if start_date.present? && end_date.present? && end_date < start_date
       errors.add(:end_date, "ne peut pas être avant la date de début du contrat")
     end
@@ -34,12 +37,18 @@ class Document < ApplicationRecord
     end
   end
 
-  def old_end_date_cannot_be_in_after_start_date
+  def old_end_date_cannot_be_after_start_date
     if old_end_date.present? && start_date.present? && old_end_date >= start_date
       errors.add(:old_end_date, "ne peut pas être après la date de début de V.I")
     end
     if old_start_date.present? && start_date.present? && old_start_date >= start_date
       errors.add(:old_start_date, "ne peut pas être après la date de début de V.I")
+    end
+  end
+
+  def chomage_start_date_cannot_be_after_end_old_date
+    if chomage_start_date.present? && old_end_date.present? && chomage_start_date < old_end_date
+      errors.add(:old_end_date, "ne peut pas être après la date de début de V.I")
     end
   end
 
