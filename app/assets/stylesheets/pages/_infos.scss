@@ -38,10 +38,10 @@ bottom: 0;
 
 .error-text {
   box-shadow: $box-shadow;
+  margin: 20px;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 20px;
-  padding-top: 20px;
-  margin-top: 50px;
-  width: 80vh;
+  z-index: 9999;
+  text-align: center;
 }
