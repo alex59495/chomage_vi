@@ -2,6 +2,7 @@ fr:
   activerecord:
     models:
       document: Document
+      info: Info
     attributes:
       document:
         first_name: "Ton prénom"
@@ -15,6 +16,10 @@ fr:
         old_work: "Ton ancien poste"
         old_start_date: "La date de début de ton précédent contrat"
         old_end_date: "La date de fin de ton précédent contrat"
+        start_unemployment_at: "La date de début de chômage"
+      info:
+        work: "Le travail"
+        unemployment: "Le chômage"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
@@ -34,44 +39,44 @@ fr:
     - sam
     abbr_month_names:
     - 
-    - jan.
-    - fév.
-    - mar.
-    - avr.
-    - mai
-    - juin
-    - juil.
-    - août
-    - sept.
-    - oct.
-    - nov.
-    - déc.
+    - Jan.
+    - Fév.
+    - Mar.
+    - Avr.
+    - Mai
+    - Juin
+    - Juil.
+    - Août
+    - Sept.
+    - Oct.
+    - Nov.
+    - Déc.
     day_names:
-    - dimanche
-    - lundi
-    - mardi
-    - mercredi
-    - jeudi
-    - vendredi
-    - samedi
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
     formats:
       default: "%d/%m/%Y"
       long: "%e %B %Y"
       short: "%e %b"
     month_names:
     - 
-    - janvier
-    - février
-    - mars
-    - avril
-    - mai
-    - juin
-    - juillet
-    - août
-    - septembre
-    - octobre
-    - novembre
-    - décembre
+    - Janvier
+    - Février
+    - Mars
+    - Avril
+    - Mai
+    - Juin
+    - Juillet
+    - Août
+    - Septembre
+    - Octobre
+    - Novembre
+    - Décembre
     order:
     - :day
     - :month

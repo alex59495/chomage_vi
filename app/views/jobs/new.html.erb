@@ -1,0 +1,9 @@
+<div class="col-6 offset-3">
+  <%= simple_form_for [@info, @job] do |f| %>
+    <%= f.input :company, label: "Ton dernier employeur avant ton V.I" %>
+    <%= f.input :work, label: "Intitulé de ton ancien poste" %>
+    <%= f.input :start_at, label: "Date de début de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"} %>
+    <%= f.input :end_at, label: "Date de fin de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"}%>
+    <%= f.submit "Gratte ton chômage !" %>
+  <% end %>
+</div>

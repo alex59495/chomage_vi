@@ -2,6 +2,10 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
+    if @document.start_unemployment_at
+      @unemployment_days_paid = (@document.start_date - @document.start_unemployment_at).to_i
+      @unemployment_days_remaining = @document.info.days_unemployment - @unemployment_days_paid
+    end
     @duration = (@document.end_date - @document.start_date).to_i/30
     respond_to do |format|
       format.html
@@ -18,15 +22,18 @@ class DocumentsController < ApplicationController
   end
 
   def new
-    @info_preliminaire = InfoPreliminaire.last
+    @info = Info.find(params[:info_id])
+    @job = Job.new
     @document = Document.new
   end
 
   def create
     @document = Document.new(params_document)
-    @document.info_preliminaire = InfoPreliminaire.last
+    @info = Info.find(params[:info_id])
+    @job = Job.new
+    @document.info_id = params[:info_id]
     if @document.save
-      redirect_to document_path(@document, format: :pdf)
+      redirect_to info_document_path(@info, @document, format: :pdf)
     else
       render(:new)
     end
@@ -36,6 +43,6 @@ class DocumentsController < ApplicationController
   def params_document
     params.require(:document).permit(:first_name, :last_name,
     :company, :work, :work_type, :start_date, :end_date, :old_work,
-    :old_company, :old_start_date, :old_end_date, :chomage_start_date)
+    :old_company, :old_start_date, :old_end_date, :start_unemployment_at)
   end
 end

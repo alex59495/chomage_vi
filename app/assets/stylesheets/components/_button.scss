@@ -1,10 +1,14 @@
 $box-shadow-btn: rgba(88, 138, 118, 0.8) 0px 2px 8px 0px;
+$box-shadow-hover: rgba(51, 78, 67, 0.8) 0px 2px 8px 0px;
 
 
 .btn-submit {
   background-color: $tea-green;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
   box-shadow: $box-shadow-btn;
   border-color: transparent;
+  &:hover {
+    box-shadow: $box-shadow-hover;
+  }
 }
