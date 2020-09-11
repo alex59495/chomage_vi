@@ -1,10 +1,27 @@
 $box-shadow-btn: rgba(88, 138, 118, 0.8) 0px 2px 8px 0px;
+$box-shadow-hover-btn: rgba(51, 78, 67, 0.8) 0px 2px 8px 0px;
+$box-shadow-add: #5A7385 0px 2px 8px 0px;
+$box-shadow-hover-add: #41535f 0px 2px 8px 0px;
 
 
 .btn-submit {
   background-color: $tea-green;
   border-radius: 10px;
-  padding: 10px;
+  padding: 6px;
   box-shadow: $box-shadow-btn;
   border-color: transparent;
+  &:hover {
+    box-shadow: $box-shadow-hover-btn;
+  }
+}
+
+  .btn-add {
+    background-color: $darkblue;
+    border-radius: 50%;
+    color: white;
+    box-shadow: $box-shadow-btn;
+    border-color: transparent;
+    &:hover {
+      box-shadow: $box-shadow-hover-add;
+    }
 }
