@@ -2,6 +2,7 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
+    @info = Info.find(params[:info_id])
     if @document.start_unemployment_at
       @unemployment_days_paid = (@document.start_date - @document.start_unemployment_at).to_i
       @unemployment_days_remaining = @document.info.days_unemployment - @unemployment_days_paid

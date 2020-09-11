@@ -12,7 +12,7 @@
       Être Volontaire International (V.I), c’est partir pour une mission professionnelle à l'étranger tout en bénéficiant d’un statut public protecteur. Le V.I est placé sous la tutelle de l’Ambassade de France et est défini dans <b><a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000021954325&categorieLien=id#:~:text=%2DI.,d'une%20personne%20morale%20agr%C3%A9%C3%A9e" target="_blank">la loi n° 2010-241 du 10 mars 2010 </a></b>.
       <br>
       <br>
-      De 6 à 24 mois, les missions s’effectuent :
+      <div class="mb-1">De 6 à 24 mois, les missions s’effectuent :</div>
       <ul>
         <li>en entreprise, </li>
         <li>au sein d’une structure française, publique ou para-publique, relevant du Ministère des Affaires Etrangères et du Développement International ou du Ministère de l’Economie,</li>
@@ -86,7 +86,20 @@
         Entre le <b><%= "#{I18n.with_locale("fr") { I18n.l(@document.old_start_date, format: "%e %B %Y")}} et le #{I18n.with_locale("fr") { I18n.l(@document.old_end_date, format: "%e %B %Y")}}" %></b>, j’ai travaillé en tant que <%= @document.old_work %> au sein de <%= @document.old_company %>. (cf. attestation d’employeur destinée à Pôle emploi).
         <br>
         <br>
-        J’ai donc cotisé au chômage sur cette période (<%= "#{@document.old_start_date.year}-#{@document.old_end_date.year}" %>) pour laquelle je peux, aujourd’hui, recevoir des allocations chômages.
+        <div class="mb-1">
+          J’ai donc cotisé au chômage sur <%= @info.jobs.length > 0 ? "les périodes" : "la période"%> :
+        </div>
+        <ul>
+            <li><%= @document.old_start_date %> - <%= @document.old_end_date %> au sein de l'entreprise <%= @document.old_company %> en tant que <%= @document.old_work %></li>
+          <% if @info.jobs.length > 0 %>
+            <% @info.jobs.each do |job| %>
+              <div>
+                <li><%= job.start_at %> - <%= job.end_at %> au sein de l'entreprise <%= job.company %> en tant que <%= job.work %></li>
+              </div>
+            <% end %>
+          <% end %>
+        </ul>
+        <%= @info.jobs.length > 0 ? "Périodes pour lesquelles" : "Période pour laquelle"%> je peux, aujourd'hui percevoir des allocations chômage
       </div>
     <% end %>
 
