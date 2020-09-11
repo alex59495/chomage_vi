@@ -1,0 +1,10 @@
+$box-shadow-btn: rgba(88, 138, 118, 0.8) 0px 2px 8px 0px;
+
+
+.btn-submit {
+  background-color: $tea-green;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: $box-shadow-btn;
+  border-color: transparent;
+}
