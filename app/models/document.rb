@@ -17,8 +17,7 @@ class Document < ApplicationRecord
   validate :end_date_cannot_be_too_big
   validate :start_unemployment_at_cannot_be_after_start_date
   validate :start_unemployment_at_cannot_be_before_old_end_date
-  belongs_to :information
-  has_many :document_jobs
+  belongs_to :info
 
   def start_date_cannot_be_in_the_future
     if start_date.present? && start_date > Date.today 
