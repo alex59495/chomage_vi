@@ -3,6 +3,7 @@ fr:
     models:
       document: Document
       info: Info
+      job: Job
     attributes:
       document:
         first_name: "Ton prénom"
@@ -20,6 +21,11 @@ fr:
       info:
         work: "Le travail"
         unemployment: "Le chômage"
+      job:
+        company: "L'entreprise"
+        work: "Ton poste"
+        start_at: "La date de début du contrat"
+        end_at: "La date de fin du contrat"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'

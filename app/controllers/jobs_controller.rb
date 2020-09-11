@@ -2,11 +2,14 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(params_job)
+    @info = Info.find(params[:info_id])
     @job.info_id = params[:info_id]
     if @job.save
       redirect_to new_info_document_path(params[:info_id])
     else
-      render(:new)
+      respond_to do |format|
+        format.js { render 'documents/modal_job' }
+      end
     end
   end
 

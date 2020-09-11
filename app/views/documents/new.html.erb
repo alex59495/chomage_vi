@@ -18,7 +18,7 @@
     <% end %>
     <div class="text-center"> Si besoin, vous pouvez ajouter un ou plusieurs travails (CDD, intérim ..) en plus de votre dernier emploi </div>
     <div class="text-center">
-      <button type="button" class="btn-add mb-3" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" class="btn-add mb-3" data-toggle="modal" data-target="#jobModal">
         +
       </button>
     </div>
@@ -39,28 +39,7 @@
       <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
     </div>
   <% end %>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ancien Travail</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= simple_form_for [@info, @job] do |f| %>
-            <%= f.input :company, label: "Nom de l'employer" %>
-            <%= f.input :work, label: "Intitulé du poste" %>
-            <%= f.input :start_at, label: "Date de début du poste", as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.input :end_at, label: "Date de fin du poste", as: :string, required: false, input_html: {class: "datepicker"}%>
-        </div>
-          <div class="modal-footer">
-            <button type="button" class="btn-dark" data-dismiss="modal">Close</button>
-            <%= f.submit "Ajoute ton travail", class: "btn-submit" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+  <div class="modal fade" id="jobModal" tabindex="-1" role="dialog" aria-labelledby="jobModalLabel" aria-hidden="true">
+    <%= render 'documents/modal_job' %>
   </div>
 </div>
