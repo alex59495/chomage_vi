@@ -1,9 +1,0 @@
-<div class="col-6 offset-3">
-  <h1 class="text-center">Quelques petites infos avant de commencer</h1>
-  <%= simple_form_for @info_preliminaire do |f| %>
-    <%= f.input :travail, collection: InfoPreliminaire::REPONSE, as: :radio_buttons, label: "As-tu travaillé lors des deux années qui ont précédées ton VI ?" %>
-    <%= f.input :chomage, collection: InfoPreliminaire::REPONSE, as: :radio_buttons, label: "As-tu touché le chômage entre la fin de ton travail et le début du VI ?" %>
-    <%= f.submit "Gratte ton chômage !" %>
-  <% end %>
-</div>
-<% console %>

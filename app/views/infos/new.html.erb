@@ -1,0 +1,11 @@
+<div class="col-6 offset-3">
+  <h1 class="text-center">Quelques petites infos avant de commencer</h1>
+  <%= simple_form_for @info, url: infos_path do |f| %>
+    <%= f.input :work, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu travaillé au moins 6 moins lors des deux années qui ont précédées ton VI ?" %>
+    <%= f.input :unemployment, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu touché le chômage entre la fin de ton dernier contrat et le début du VI ?" %>
+    <span id="collapse_section" class="d-none">
+      <%= f.input :days_unemployment, label: "Quelle était la durée totale pour cette indemnisation ?" %>
+    </span>
+    <%= f.submit "Gratte ton chômage !" %>
+  <% end %>
+</div>
