@@ -9,22 +9,31 @@
     <%= f.input :work_type, collection: Document::WORK_TYPE, label: "Type de contrat" %>
     <%= f.input :start_date, label: "Date à laquelle tu as commencé ton V.I", as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :end_date, label: "Date à laquelle tu as terminé ton V.I", as: :string, required: false, input_html: {class: "datepicker"} %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Ajouter un travail
-    </button>
     <%= f.input :old_company, label: "Ton dernier employeur avant ton V.I" %>
     <%= f.input :old_work, label: "Intitulé de ton ancien poste" %>
     <%= f.input :old_start_date, label: "Date de début de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :old_end_date, label: "Date de fin de ton ancien poste", as: :string, required: false, input_html: {class: "datepicker"}%>
-    <%= f.input :start_unemployment_at, label: "Date de début de ton chomage", as: :string, required: false, input_html: {class: "datepicker"}%>
-    <% unless @info.jobs.empty?  %>'
-      Autre(s) emploi(s) :
-      <% @info.jobs.each do |job| %>
-        <%= job.company %> - <%= job.work %>
-        <%= link_to "Delete", info_job_path(@info, job), method: :delete, data: { confirm: "Are you sure ?" } %>
-      <% end %>
+    <% if @info.unemployment == "Oui" %>
+      <%= f.input :start_unemployment_at, label: "Date de début de ton chomage", as: :string, required: false, input_html: {class: "datepicker"}%>
     <% end %>
-    <%= f.submit "Gratte ton chômage !" %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Ajouter un travail
+    </button>
+    <small> Si besoin, ajouter un ou plusieurs travails (CDD, intérim ..) </small>
+    <% unless @info.jobs.empty?  %>
+      <div class="container-other-jobs">
+        <div class="title-other-jobs">Autre(s) emploi(s) :</div>
+        <% @info.jobs.each do |job| %>
+          <div class="card-job">
+            <%= job.company %> - <%= job.work %> - <%= job.start_at.strftime("%e %B %Y") %> / <%= job.end_at.strftime("%e %B %Y") %>
+            <%= link_to info_job_path(@info, job), method: :delete, data: { confirm: "Supprimer ce travail ?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%= f.submit "Gratte ton chômage !", class: "btn btn-primary" %>
   <% end %>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
