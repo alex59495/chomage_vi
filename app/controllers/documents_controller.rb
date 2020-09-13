@@ -3,7 +3,6 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @info = Info.find(params[:info_id])
-binding.pry
     @days_worked = (@document.old_end_date - @document.verify_start_date).to_i - @document.latency
     if @document.start_unemployment_at
       unemployment_calc(@document)

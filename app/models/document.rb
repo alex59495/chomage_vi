@@ -17,6 +17,7 @@ class Document < ApplicationRecord
   validate :end_date_cannot_be_too_big
   validate :start_unemployment_at_cannot_be_after_start_date
   validate :start_unemployment_at_cannot_be_before_old_end_date
+  validate :jobs_validation
   belongs_to :info
 
   def start_date_cannot_be_in_the_future
@@ -91,6 +92,17 @@ class Document < ApplicationRecord
       (Date.today - end_date).to_i
     else 
       0
+    end
+  end
+
+  def jobs_validation
+    if info.jobs.present?
+      sort_jobs = info.jobs.order(:start_at)
+      sort_jobs.to_a.each_with_index do |job, index|
+        if (index < sort_jobs.length - 1 && job.end_at > sort_jobs[index + 1].start_at) || job.end_at > old_start_date
+          errors.add(:old_end_date, "Il y a un problème au niveau des dates saisies pour les différents jobs.")
+        end
+      end
     end
   end
 
