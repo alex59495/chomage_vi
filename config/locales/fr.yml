@@ -21,6 +21,7 @@ fr:
       info:
         work: "Le travail"
         unemployment: "Le chômage"
+        days_unemployment: "La durée d'indemnisation"
       job:
         company: "L'entreprise"
         work: "Ton poste"

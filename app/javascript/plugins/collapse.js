@@ -12,6 +12,14 @@ const collaspeInfoForm = () => {
         }
       })
     })
+    window.onload = () => {
+      const collapse = document.getElementById("collapse_section");
+      if (infoUnemployment.checked) {
+        collapse.classList.remove("d-none");
+      } else {
+        collapse.classList.add("d-none");
+      }
+    }
   }
 }
 
