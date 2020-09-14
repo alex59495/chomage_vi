@@ -9,19 +9,19 @@ $box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
   font-family: $text;
 }
 
-// .first-form-img {
-//   width: 55vh;
-// }
+.first-form-img {
+  width: 55vh;
+}
 
-
-
-.page-container {
+.first-form {
   margin-top: 10vh;
-   box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  padding: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
   padding-top: 20px;
+  padding-bottom: 0px;
 
 }
 
@@ -29,6 +29,10 @@ $box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
   position: fixed;
   bottom: 0;
   left: 0;
+}
+
+.page-container {
+  margin-top: 20vh;
 }
 
 h1 {

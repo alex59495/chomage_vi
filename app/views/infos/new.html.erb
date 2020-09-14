@@ -1,9 +1,8 @@
 <div class="page-container d-flex flex-wrap justify-content-center ">
-  <div class="img-form">
+  <div class="img-form my-3">
     <img src="/assets/form-img.png" alt="" class="first-form-img">
   </div>
-  <div class="first-form">
-
+  <div class="first-form my-3">
       <h1 class="text-center">Quelques petites infos avant de commencer</h1>
       <br>
       <%= simple_form_for @info, url: infos_path do |f| %>
@@ -16,6 +15,5 @@
           <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
         </div>
       <% end %>
-
   </div>
 </div>
