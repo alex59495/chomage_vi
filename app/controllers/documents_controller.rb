@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
     @info = Info.find(params[:info_id])
     @days_worked = (@document.old_end_date - @document.verify_start_date).to_i - @document.latency
     if @document.start_unemployment_at
-      unemployment_calc(@document)
+      unemployment_calc(@document.start_date, @document.start_unemployment_at)
     elsif @document.info.jobs.present?
       @days_worked += @document.days_worked_other_jobs_calc
       @document.recalculate_jobs
@@ -45,7 +45,7 @@ class DocumentsController < ApplicationController
   
   private
 
-  def unemployment_calc
+  def unemployment_calc(start_date, start_unemployment_at)
     @unemployment_days_paid = (start_date - start_unemployment_at).to_i
     @unemployment_days_remaining = @info.days_unemployment - @unemployment_days_paid
   end
