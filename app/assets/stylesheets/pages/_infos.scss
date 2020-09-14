@@ -5,20 +5,30 @@ $box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
 
 
 .first-form {
-  box-shadow: $box-shadow;
+
+  font-family: $text;
+}
+
+// .first-form-img {
+//   width: 55vh;
+// }
+
+
+
+.page-container {
+  margin-top: 10vh;
+   box-shadow: $box-shadow;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   padding: 20px;
   padding-top: 20px;
-  font-family: $text;
+
 }
 
-.first-form-img {
-  width: 55vh;
-}
-
-.page-container {
-  margin-top: 10vh;
+.img-form {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 h1 {
@@ -32,8 +42,8 @@ h1 {
 
 
 .error-image {
-position: absolute;
-bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .error-text {
