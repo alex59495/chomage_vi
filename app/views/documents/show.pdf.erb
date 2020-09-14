@@ -99,7 +99,9 @@
             <% end %>
           <% end %>
         </ul>
-        <%= @info.jobs.length > 0 ? "Périodes pour lesquelles" : "Période pour laquelle"%> je peux, aujourd'hui percevoir des allocations chômage
+        <%= @info.jobs.length > 0 ? "Périodes pour lesquelles" : "Période pour laquelle"%> je peux, aujourd'hui percevoir des allocations chômage.
+        <br>
+        Après calcul, cela devrait représenter <%= @days_worked %> jours.
       </div>
     <% end %>
 

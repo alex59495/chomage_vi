@@ -17,6 +17,7 @@ class Document < ApplicationRecord
   validate :end_date_cannot_be_too_big
   validate :start_unemployment_at_cannot_be_after_start_date
   validate :start_unemployment_at_cannot_be_before_old_end_date
+  validate :jobs_validation
   belongs_to :info
 
   def start_date_cannot_be_in_the_future
@@ -69,4 +70,54 @@ class Document < ApplicationRecord
       errors.add(:end_date, "Tu ne peux pas ouvrir tes droits aux chômage plus d'un an après la fin de ton V.I")
     end
   end
+  
+  def days_worked_other_jobs_calc
+    days_worked = 0
+    info.jobs.each do |job|
+      days_worked += (job.end_at - job.start_at).to_i
+    end
+    days_worked
+  end
+
+  def verify_start_date
+    if old_start_date < start_date.advance(days: -730 + self.latency)
+      start_date.advance(days: -730 + self.latency)
+    else
+      old_start_date
+    end
+  end
+
+  def latency
+    if end_date < Date.today
+      (Date.today - end_date).to_i
+    else 
+      0
+    end
+  end
+
+  def jobs_validation
+    if info.jobs.present?
+      sort_jobs = info.jobs.order(:start_at)
+      sort_jobs.to_a.each_with_index do |job, index|
+        if (index < sort_jobs.length - 1 && job.end_at > sort_jobs[index + 1].start_at) || job.end_at > old_start_date
+          errors.add(:old_end_date, "Il y a un problème au niveau des dates saisies pour les différents jobs.")
+        end
+      end
+    end
+  end
+
+  def recalculate_jobs
+    info.jobs.each do |job| 
+      if job.start_at < start_date.advance(days: -730 + self.latency)
+        job.start_at = start_date.advance(days: -730 + self.latency)
+        job.save
+        if job.start_at > job.end_at
+          job.destroy
+        end
+      else
+        job.start_at
+      end
+    end
+  end
+  
 end

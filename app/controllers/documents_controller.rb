@@ -3,11 +3,14 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @info = Info.find(params[:info_id])
+    @days_worked = (@document.old_end_date - @document.verify_start_date).to_i - @document.latency
     if @document.start_unemployment_at
-      @unemployment_days_paid = (@document.start_date - @document.start_unemployment_at).to_i
-      @unemployment_days_remaining = @document.info.days_unemployment - @unemployment_days_paid
+      unemployment_calc(@document)
+    elsif @document.info.jobs.present?
+      @days_worked += @document.days_worked_other_jobs_calc
+      @document.recalculate_jobs
     end
-    @duration = (@document.end_date - @document.start_date).to_i/30
+    @duration = (@document.end_date - @document.start_date)/30
     respond_to do |format|
       format.html
       format.pdf do
@@ -39,11 +42,18 @@ class DocumentsController < ApplicationController
       render(:new)
     end
   end
-
+  
   private
+
+  def unemployment_calc
+    @unemployment_days_paid = (start_date - start_unemployment_at).to_i
+    @unemployment_days_remaining = @info.days_unemployment - @unemployment_days_paid
+  end
+
   def params_document
     params.require(:document).permit(:first_name, :last_name,
     :company, :work, :work_type, :start_date, :end_date, :old_work,
     :old_company, :old_start_date, :old_end_date, :start_unemployment_at)
   end
+
 end
