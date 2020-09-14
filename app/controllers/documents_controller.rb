@@ -20,7 +20,8 @@ class DocumentsController < ApplicationController
           encoding: 'utf8',
           template: 'documents/show.pdf.erb',
           layout: 'pdf.html.erb'
-        )  # Excluding ".pdf" extension.
+        )
+        # Excluding ".pdf" extension.
       end
     end
   end

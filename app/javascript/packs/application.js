@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "../plugins/flatpickr";
+import flat_picker from "../plugins/flatpickr";
 import {collaspeInfoForm} from '../plugins/collapse'
 
 // Internal imports, e.g:
@@ -32,6 +32,6 @@ import {collaspeInfoForm} from '../plugins/collapse'
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
+  flat_picker();
   collaspeInfoForm();
 });

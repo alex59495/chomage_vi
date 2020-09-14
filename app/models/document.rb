@@ -96,7 +96,7 @@ class Document < ApplicationRecord
   end
 
   def jobs_validation
-    if info.jobs.present?
+    if info.jobs.present? && info.document.start_date.present? && info.document.end_date.present
       sort_jobs = info.jobs.order(:start_at)
       sort_jobs.to_a.each_with_index do |job, index|
         if (index < sort_jobs.length - 1 && job.end_at > sort_jobs[index + 1].start_at) || job.end_at > old_start_date
