@@ -1,119 +1,106 @@
 <div class="container">
   <div class="document-container">
-    <div class="title text-center">
+    <div class="title text-center mb-5">
       <h1>Dossier Retour V.I (Volontariat International)</h1>
       <h3>- Demande de réouverture des droits au chômage -</h3>
       <h5><%= "#{@document.first_name} #{@document.last_name}" %></h5>
     </div>
-
-    <br>
     <h4>1.	Qu’est-ce que le Volontariat International ?</h4>
-    <div>
+    <div class="mb-1">
       Être Volontaire International (V.I), c’est partir pour une mission professionnelle à l'étranger tout en bénéficiant d’un statut public protecteur. Le V.I est placé sous la tutelle de l’Ambassade de France et est défini dans <b><a href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000021954325&categorieLien=id#:~:text=%2DI.,d'une%20personne%20morale%20agr%C3%A9%C3%A9e" target="_blank">la loi n° 2010-241 du 10 mars 2010 </a></b>.
-      <br>
-      <br>
-      <div class="mb-1">De 6 à 24 mois, les missions s’effectuent :</div>
-      <ul>
-        <li>en entreprise, </li>
-        <li>au sein d’une structure française, publique ou para-publique, relevant du Ministère des Affaires Etrangères et du Développement International ou du Ministère de l’Economie,</li>
-        <li>dans une structure publique locale étrangère (centres de recherche et universités publiques),</li>
-        <li>auprès d’organisations internationales ou d’associations agréées.</li>
-      </ul>
+    </div>
+    <div class="mb-1">De 6 à 24 mois, les missions s’effectuent :</div>
+    <ul>
+      <li>en entreprise, </li>
+      <li>au sein d’une structure française, publique ou para-publique, relevant du Ministère des Affaires Etrangères et du Développement International ou du Ministère de l’Economie,</li>
+      <li>dans une structure publique locale étrangère (centres de recherche et universités publiques),</li>
+      <li>auprès d’organisations internationales ou d’associations agréées.</li>
+    </ul>
+    <div class="mb-1">
       Le Volontariat International n'est pas du bénévolat. Les V.I perçoivent mensuellement une indemnité forfaitaire variable suivant le pays d’affectation.
-      <br>
-      <br>
+    </div>
+    <div class="mb-3">
       Destiné principalement aux étudiants, jeunes diplômés, ou chercheurs d’emploi, de 18 à 28 ans, le Volontariat International est une expérience professionnelle enrichissante, véritable tremplin pour une carrière internationale.
     </div>
-    <br>
-
     <h4>2.	Mon contrat V.I</h4>
-    Pour ma part j’ai effectué mon V.I au sein de <%= @document.company %> pendant <b><%= @duration %> mois</b> entre le <%= "#{I18n.with_locale("fr") { I18n.l(@document.start_date, format: "%e %B %Y")}} et le #{I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")}}" %> en tant que <%= @document.work_type %> : « <%= @document.work %> ».
-    <br>
-    <br>
-    Mon contrat V.I a donc pris fin au <b><%= I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")} %> </b>(cf Certificat d’accomplissement de volontariat civil à l’étranger).
-
-    <br><br>
+    <div class="mb-1">
+      Pour ma part j’ai effectué mon V.I au sein de <%= @document.company %> pendant <b><%= @duration %> mois</b> entre le <%= "#{I18n.with_locale("fr") { I18n.l(@document.start_date, format: "%e %B %Y")}} et le #{I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")}}" %> en tant que <%= @document.work_type %> : « <%= @document.work %> ».
+    </div>
+    <div class="mb-3">
+      Mon contrat V.I a donc pris fin au <b><%= I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")} %> </b>(cf Certificat d’accomplissement de volontariat civil à l’étranger).
+    </div>
     <h4>3.	Le V.I reconnu comme service civique</h4>
-    L’article <b><a class="mr-1" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000021954325&categorieLien=id#:~:text=%2DI.,d'une%20personne%20morale%20agr%C3%A9%C3%A9e" target="_blank">L.120-1 de la loi n° 2010-241 du 10 mars 2010</a></b> précise que le Volontariat International est reconnu comme un <b>service civique</b> :
-    <br>
-    <br>
-    <i>« Le service civique peut également prendre les formes suivantes : […]
-    <br>
-     2o Le volontariat international en administration et le volontariat international en entreprise mentionnés au chapitre II du titre II du présent livre, le volontariat de solidarité internationale régi par la loi no 2005-159 du 23 février 2005 relative au contrat de volontariat de solidarité internationale ou le service volontaire européen défini par la décision no 1031/2000/CE du Parlement européen et du Conseil, du 13 avril 2000, établissant le programme d’action communautaire “Jeunesse” et par la décision no 1719/2006/CE du Parlement européen et du Conseil, du 15 novembre 2006, établissant le programme “Jeunesse en action” pour la période 2007-2013. »</i>
+    <div class="mb-1">
+      L’article <b><a class="mr-1" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000021954325&categorieLien=id#:~:text=%2DI.,d'une%20personne%20morale%20agr%C3%A9%C3%A9e" target="_blank">L.120-1 de la loi n° 2010-241 du 10 mars 2010</a></b> précise que le Volontariat International est reconnu comme un <b>service civique</b> :
+    </div>
+    <div class="mb-2 font-italic">
+      « Le service civique peut également prendre les formes suivantes : […]
+      <br>
+      2o Le volontariat international en administration et le volontariat international en entreprise mentionnés au chapitre II du titre II du présent livre, le volontariat de solidarité internationale régi par la loi no 2005-159 du 23 février 2005 relative au contrat de volontariat de solidarité internationale ou le service volontaire européen défini par la décision no 1031/2000/CE du Parlement européen et du Conseil, du 13 avril 2000, établissant le programme d’action communautaire “Jeunesse” et par la décision no 1719/2006/CE du Parlement européen et du Conseil, du 15 novembre 2006, établissant le programme “Jeunesse en action” pour la période 2007-2013. »
+    </div>
 
-    <br><br>
+    <div class="page-break"></div>
     <h4>4.	Le versement des droits à indemnisation antérieurement acquis</h4>
-    Le service civique <b>permet de « geler »</b> les droits au chômage durant la durée du V.I quand bien même celui-ci fait suite à une rupture de contrat de travail.
-    <br><br>Le Titre 1, chapitre 2, article 7 du <b><a class="ml-1" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000038829574&categorieLien=id" target="_blank">Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage</b></a> précise que :
-    <br>
-    <br>
-    <i>« La période de douze mois est allongée des périodes durant lesquelles ont été accomplies des obligations contractées à l'occasion du service national, en application des <a href= "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000006555907&dateTexte=&categorieLien=cid" target="_blank">  premiers et deuxièmes alinéas de l'article L. 111-2 du code du service national</a>, et de la durée des missions accomplies dans le cadre d'un ou plusieurs contrats de service civique, dans ses différentes formes possibles, dans les conditions prévues à l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000021956514&dateTexte=&categorieLien=cid" target="_blank"> L. 120-1 du même code ».</a></i>
-    <br>
-    <br>
-    Le versement de mes droits à indemnisation antérieurement acquis à mon V.I, est suspendu pendant la durée de la mission et reprend au terme de celle-ci. La mission n’a pas d’impact sur le montant et la durée des allocations chômage.
-    
-    <br><br>
-
+    <div class="mb-1">
+      Le service civique <b>permet de « geler »</b> les droits au chômage durant la durée du V.I quand bien même celui-ci fait suite à une rupture de contrat de travail.
+    </div>
+    <div class="mb-1">
+      Le Titre 1, chapitre 2, article 7 du <b><a class="ml-1" href="https://www.legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000038829574&categorieLien=id" target="_blank">Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage</b></a> précise que :
+    </div>
+    <div class="mb-2 font-italic">« La période de douze mois est allongée des périodes durant lesquelles ont été accomplies des obligations contractées à l'occasion du service national, en application des <a href= "https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000006555907&dateTexte=&categorieLien=cid" target="_blank">  premiers et deuxièmes alinéas de l'article L. 111-2 du code du service national</a>, et de la durée des missions accomplies dans le cadre d'un ou plusieurs contrats de service civique, dans ses différentes formes possibles, dans les conditions prévues à l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000021956514&dateTexte=&categorieLien=cid" target="_blank"> L. 120-1 du même code ».</a></div>
+    <div class="mb-3">
+      Le versement de mes droits à indemnisation antérieurement acquis à mon V.I, est suspendu pendant la durée de la mission et reprend au terme de celle-ci. La mission n’a pas d’impact sur le montant et la durée des allocations chômage.
+    </div>
     <% if @unemployment_days_remaining %>
       <h4>5.   Réactivation de l'indemnisation en cours</h4>
-
-      Avant le commencement de ce V.I, j'avais pu bénéficier d'indemnités liées au chomage pendant une durée de <b><%= @unemployment_days_paid %> jours</b>.<br>
-
-      Lors du l'ouverture de ces droits, il m'avait été précisé que la durée totale de cette indemnité s'étalait sur une période <%= @document.info.days_unemployment %> jours, après calcul, il me reste donc <b><%= @unemployment_days_remaining %> jours</b> sur cette même indemnité.<br>
-
+      <div class="mb-1">
+        Avant le commencement de ce V.I, j'avais pu bénéficier d'indemnités liées au chomage pendant une durée de <%= @unemployment_days_paid %> jours.
+      </div>
+      <div class="mb-3">
+        Lors du l'ouverture de ces droits, il m'avait été précisé que la durée totale de cette indemnité s'étalait sur une période <%= @document.info.days_unemployment %> jours, après calcul, il me reste donc <b><%= @unemployment_days_remaining %> jours</b> sur cette même indemnité.<br>
+      </div>
     <% else %>
       
       <h4>5.	Démission légitime pour conclure un V.I</h4>
-      Ma démission de mon ancien contrat de travail pour effectuer ce V.I est considérée comme <b>légitime</b> (et donc ouvrant des droits au chômage) car il est indiqué au Titre 1, chapitre 2, article 2 du <b>Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage</b> :
-      <br>
-      <br>
-      <i>« Sont assimilés à des salariés involontairement privés d'emploi au sens de l'article <a class="ml-1" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903823&dateTexte=&categorieLien=cid" target= _blank>L. 5422-1 du code du travail</a>, et ont donc également droit à l'allocation d'aide au retour à l'emploi, les salariés dont la cessation du contrat de travail résulte d'un des cas de démission légitime suivants : […]
-
-      <br>
-      o. La démission du salarié qui quitte son emploi pour conclure un contrat de service civique au sens de l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000021956514&dateTexte=&categorieLien=cid" target="_blank">L. 120-1 du code du service national</a>. »
-      </i>
-
-      <br>
-      <br>
-      L’article L.120-10 de la <b>loi n°2010-241 du 10 mars 2010 </b>précise aussi que :
-      <br>
-      <br>
-      <i> « La rupture de son contrat de travail, à l’initiative du salarié, aux fins de souscrire un contrat de service civique, ne peut avoir pour effet de le priver de ses droits à l’assurance chômage à l’issue de son service civique ».</i>
-
-      <br><br>
+      <div class="mb-1">
+        Ma démission de mon ancien contrat de travail pour effectuer ce V.I est considérée comme <b>légitime</b> (et donc ouvrant des droits au chômage) car il est indiqué au Titre 1, chapitre 2, article 2 du <b>Décret n° 2019-797 du 26 juillet 2019 relatif au régime d'assurance chômage</b> :
+      </div>
+      <div class="mb-2 font-italic">
+        « Sont assimilés à des salariés involontairement privés d'emploi au sens de l'article <a class="ml-1" href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006072050&idArticle=LEGIARTI000006903823&dateTexte=&categorieLien=cid" target= _blank>L. 5422-1 du code du travail</a>, et ont donc également droit à l'allocation d'aide au retour à l'emploi, les salariés dont la cessation du contrat de travail résulte d'un des cas de démission légitime suivants : […]
+        <br>
+        o. La démission du salarié qui quitte son emploi pour conclure un contrat de service civique au sens de l'article <a href="https://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006071335&idArticle=LEGIARTI000021956514&dateTexte=&categorieLien=cid" target="_blank">L. 120-1 du code du service national</a>. »
+      </div>
+      <div class="mb-1">
+        L’article L.120-10 de la <b>loi n°2010-241 du 10 mars 2010 </b>précise aussi que :
+      </div>
+      <div class="mb-3 font-italic">
+        « La rupture de son contrat de travail, à l’initiative du salarié, aux fins de souscrire un contrat de service civique, ne peut avoir pour effet de le priver de ses droits à l’assurance chômage à l’issue de son service civique ».
+      </div>
       <h4>6.	Le détail de mes droits à indemnisation acquis antérieurement à ce V.I</h4>
-      <div>
-        Entre le <b><%= "#{I18n.with_locale("fr") { I18n.l(@document.old_start_date, format: "%e %B %Y")}} et le #{I18n.with_locale("fr") { I18n.l(@document.old_end_date, format: "%e %B %Y")}}" %></b>, j’ai travaillé en tant que <%= @document.old_work %> au sein de <%= @document.old_company %>. (cf. attestation d’employeur destinée à Pôle emploi).
-        <br>
-        <br>
-        <div class="mb-1">
-          J’ai donc cotisé au chômage sur <%= @info.jobs.length > 0 ? "les périodes" : "la période"%> :
-        </div>
-        <ul>
-            <li><%= @document.old_start_date %> - <%= @document.old_end_date %> au sein de l'entreprise <%= @document.old_company %> en tant que <%= @document.old_work %></li>
-          <% if @info.jobs.length > 0 %>
-            <% @info.jobs.each do |job| %>
-              <div>
-                <li><%= job.start_at %> - <%= job.end_at %> au sein de l'entreprise <%= job.company %> en tant que <%= job.work %></li>
-              </div>
-            <% end %>
+      <div class="mb-1">
+        J’ai cotisé au chômage sur <%= @info.jobs.length > 0 ? "les périodes" : "la période"%> :
+      </div>
+      <ul>
+          <li><%= l @document.old_start_date %> - <%= l @document.old_end_date %> au sein de l'entreprise <%= @document.old_company %> en tant que <%= @document.old_work %> <i style="font-size: 13px" class="ml-1">(cf : attestation employeur)</i></li>
+        <% if @info.jobs.length > 0 %>
+          <% @info.jobs.each do |job| %>
+            <div>
+              <li><%= l job.start_at %> - <%= l job.end_at %> au sein de l'entreprise <%= job.company %> en tant que <%= job.work %> <i style="font-size: 13px" class="ml-1">(cf : attestation employeur)</i></li>
+            </div>
           <% end %>
-        </ul>
+        <% end %>
+      </ul>
+      <div class="mb-1">
         <%= @info.jobs.length > 0 ? "Périodes pour lesquelles" : "Période pour laquelle"%> je peux, aujourd'hui percevoir des allocations chômage.
-        <br>
-        Après calcul, cela devrait représenter <%= @days_worked %> jours.
+      </div>
+      <div class="mb-4">
+      Après calcul, cela devrait représenter <b><%= @days_worked %> jours</b>.
       </div>
     <% end %>
-
-    <br>
-    <div>
+    <div class="mb-1">
       Dans l’état, je vous prie de bien vouloir réactiver mes droits au chômage suite à la fin de mon Volontariat International.
     </div>
-
-    <br>
-    <div>Bien cordialement,</div>
-
-    <br>
-    <div><%= "#{@document.first_name} #{@document.last_name}" %></div>
+    <div class="mb-1">Bien cordialement,</div>
+    <div class="mb-5"><%= "#{@document.first_name} #{@document.last_name}" %></div>
   </div>
 </div>
