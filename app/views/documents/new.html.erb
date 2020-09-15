@@ -22,12 +22,12 @@
         +
       </button>
     </div>
-    <% unless @info.jobs.empty?  %>
-      <div class="container-other-jobs mb-3" id="containerJob">
+    <div id="containerJob">
+      <% unless @info.jobs.empty?  %>
         <%= render 'documents/container_other_jobs' %>
-      </div>
-    <% end %>
-    <div class="text-center">
+      <% end %>
+    </div>
+    <div class="text-center mt-3">
       <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
     </div>
   <% end %>
