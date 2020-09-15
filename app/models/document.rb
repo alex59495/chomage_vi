@@ -30,6 +30,9 @@ class Document < ApplicationRecord
     if start_unemployment_at.present? && start_unemployment_at > Date.today 
       errors.add(:start_unemployment_at, "ne peut pas être une date future")
     end
+    if old_end_date.present? && old_end_date > Date.today 
+      errors.add(:old_end_date, "ne peut pas être une date future")
+    end
   end
 
   def end_date_cannot_be_before_start_date
