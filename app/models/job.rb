@@ -5,11 +5,18 @@ class Job < ApplicationRecord
   validates :start_at, presence: true
   validates :end_at, presence: true
   validate :start_at_cannot_be_in_the_future
+  validate :end_at_cannot_be_in_the_future
   validate :end_at_cannot_be_before_start_at
   
   def start_at_cannot_be_in_the_future
     if start_at.present? && start_at > Date.today 
       errors.add(:start_at, "ne peut pas être une date future")
+    end
+  end
+
+  def end_at_cannot_be_in_the_future
+    if end_at.present? && end_at > Date.today 
+      errors.add(:end_at, "ne peut pas être une date future")
     end
   end
 

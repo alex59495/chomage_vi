@@ -4,14 +4,10 @@ class JobsController < ApplicationController
     @job = Job.new(params_job)
     @info = Info.find(params[:info_id])
     @job.info_id = params[:info_id]
-    if @job.save
-      respond_to do |format|
+    respond_to do |format|
+      if @job.save
         format.html { redirect_to new_info_document_path(params[:info_id]) }
-        # Go the new.js.erb to reload the page (enable to re-submit the create job, can't do it without)
-        format.js { render 'documents/new' }
-      end
-    else
-      respond_to do |format|
+      else
         format.js { render 'documents/modal_job' }
       end
     end
