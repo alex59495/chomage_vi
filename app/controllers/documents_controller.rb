@@ -10,7 +10,7 @@ class DocumentsController < ApplicationController
       @days_worked += @document.days_worked_other_jobs_calc
       @document.recalculate_jobs
     end
-    @duration = (@document.end_date - @document.start_date)/30
+    @duration = (@document.end_date - @document.start_date).to_i / 30
     respond_to do |format|
       format.html
       format.pdf do
@@ -19,9 +19,17 @@ class DocumentsController < ApplicationController
           enable_local_file_access: true,
           encoding: 'utf8',
           template: 'documents/show.pdf.erb',
-          layout: 'pdf.html.erb'
+          layout: 'pdf.html.erb',
+          footer: {
+            html: {
+              template: 'documents/footer.html.erb'
+            }
+          },
+          margin: {
+            top: 16, # default 10 (mm)
+            bottom: 16
+          }
         )
-        # Excluding ".pdf" extension.
       end
     end
   end
