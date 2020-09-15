@@ -6,3 +6,11 @@
     color: #497463;
   }
 }
+
+.links {
+  color: $wintergreen;
+  &:hover {
+    color: #497463;
+    text-decoration: none;
+  }
+}
