@@ -1,6 +1,9 @@
- <div class="error-container d-flex flex-wrap justify-content-center align-items-center">
-    <h1 class="error-text">Eh non, désolé, tu n'as pas le droit au chomdu!</h1>
+ <div class="error-container d-flex flex-wrap justify-content-center align-items-center flex-column">
+    <h1 class="error-text">Eh non, désolé, tu n'as pas le droit au chomdu !</h1>
     <br>
+    <% if params[:key] %>
+      <h3 class="error-text">Tu n'as pas cumulé assez de jours de travail avant ton V.I (mais c'est bien tenté) !</h1>
+    <% end %>
   </div>
   <div class="error-image">
     <img src="/assets/nochomage.png" alt="" class="first-form-img">
