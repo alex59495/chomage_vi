@@ -12,11 +12,11 @@
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: e0716fb80b46a77ff37627f1c44884e342b0NRAL
+  license_key: 3535a53f49d472df1b5f31ee72b093965b22NRAL
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: my-profile-alex59495
+  app_name: chomage-vi
 
   distributed_tracing:
     enabled: true
@@ -33,7 +33,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: my-profile-alex59495 (Development)
+  app_name: chomage-vi (Development)
 
 test:
   <<: *default_settings
@@ -42,7 +42,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: my-profile-alex59495 (Staging)
+  app_name: chomage-vi (Staging)
 
 production:
   <<: *default_settings
