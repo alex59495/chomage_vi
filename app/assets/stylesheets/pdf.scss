@@ -8,5 +8,11 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
-  align-items: center
+  align-items: center;
+  justify-content: center;
+ }
+
+ .footer-text {
+   width: 900px;
+   text-align: center;
  }

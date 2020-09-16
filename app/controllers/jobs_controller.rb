@@ -6,7 +6,8 @@ class JobsController < ApplicationController
     @job.info_id = params[:info_id]
     respond_to do |format|
       if @job.save
-        format.html { redirect_to new_info_document_path(params[:info_id]) }
+        # Respond with the view jobs/create.js.erb to close the modal and come back to the form
+        format.js {}
       else
         format.js { render 'documents/modal_job' }
       end

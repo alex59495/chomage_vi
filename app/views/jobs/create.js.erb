@@ -1,0 +1,6 @@
+$(document).ready(function() {
+  $(".modal-backdrop").hide()
+  $("#jobModal").hide()
+  $(".modal-open").css({overflow: 'scroll'})
+  $('#containerJob')[0].innerHTML = "<%= escape_javascript(render 'documents/container_other_jobs') %>";
+})
