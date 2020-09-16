@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.7'
 # Traduction des messages d'erreur
 gem 'i18n'
 
+# Using New relic for pigging the app
+gem 'newrelic_rpm'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
