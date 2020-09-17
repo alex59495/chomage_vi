@@ -29,6 +29,9 @@ $box-shadow-hover-add: #41535f 0px 2px 8px 0px;
 .button-logo {
   height: 80%;
   margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
   &:hover {
     background-color: rgba(255, 255, 225, .5);
     border-radius: 50%;

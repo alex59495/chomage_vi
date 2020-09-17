@@ -1,8 +1,19 @@
 // Specific CSS for your home-page
 .home {
   height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
 .img-back {
   height: 50%;
+}
+
+.img-home {
+  height: 100%;
+  object-fit: cover;
 }

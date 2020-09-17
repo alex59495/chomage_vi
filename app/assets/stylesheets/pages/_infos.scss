@@ -40,8 +40,13 @@ h1 {
 
 
 .error-image {
-position: absolute;
-bottom: 0;
+  position: absolute;
+  bottom: 0;
+}
+
+.error-img {
+  width: 70%;
+  height: 70%;
 }
 
 .error-text {
