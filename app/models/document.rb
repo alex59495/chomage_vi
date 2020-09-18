@@ -12,6 +12,7 @@ class Document < ApplicationRecord
   validates :old_start_date, presence: true, unless: :unemployment?
   validates :old_end_date, presence: true, unless: :unemployment?
   validates :unemployment, presence: true
+  validates :start_unemployment_at, presence: true, if: :unemployment?
   validate :start_date_cannot_be_in_the_future
   validate :end_date_cannot_be_before_start_date
   validate :old_end_date_cannot_be_after_start_date
