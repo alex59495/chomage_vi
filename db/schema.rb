@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_195350) do
     t.string "old_work"
     t.string "old_company"
     t.date "start_unemployment_at"
+    t.boolean "unemployment"
     t.bigint "info_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
