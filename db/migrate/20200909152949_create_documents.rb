@@ -13,6 +13,7 @@ class CreateDocuments < ActiveRecord::Migration[6.0]
       t.string :old_work
       t.string :old_company
       t.date :start_unemployment_at
+      t.boolean :unemployment
       t.references :info, null: false, foreign_key: true
 
       t.timestamps
