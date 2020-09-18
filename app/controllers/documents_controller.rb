@@ -11,7 +11,6 @@ class DocumentsController < ApplicationController
       @document.recalculate_jobs
     end
     @duration = (@document.end_date - @document.start_date).to_i / 30
-    raise
     respond_to do |format|
       format.html
       format.pdf do
