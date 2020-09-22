@@ -4,38 +4,26 @@ $box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
 // #------------- first form page -------------
 
 
-.first-form {
-
-  font-family: $text;
+.form-image {
+  position: absolute;
+  bottom: 0;
+  z-index: -9999
 }
 
-.first-form-img {
-  width: 55vh;
+.form-img {
+  width: 70%;
+  height: 70%;
 }
 
 .first-form {
   margin-top: 10vh;
   box-shadow: $box-shadow;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 10px;
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 0px;
-
-}
-
-
-@media (max-width: 990px) {
-  .first-form-img {
-    display: none;
-  }
-}
-
-@media (min-width: 991px) {
-  .first-form-img {
-    width: 55vh;
-  }
 }
 
 .page-container {
@@ -49,18 +37,6 @@ h1 {
 
 
 // ---------------- error page ---------------------
-
-
-
-.error-image {
-  position: absolute;
-  bottom: 0;
-}
-
-.error-img {
-  width: 70%;
-  height: 70%;
-}
 
 .error-text {
   box-shadow: $box-shadow;

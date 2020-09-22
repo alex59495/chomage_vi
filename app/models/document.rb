@@ -11,7 +11,7 @@ class Document < ApplicationRecord
   validates :old_work, presence: true, unless: :unemployment?
   validates :old_start_date, presence: true, unless: :unemployment?
   validates :old_end_date, presence: true, unless: :unemployment?
-  validates :unemployment, presence: true
+  validates :unemployment, inclusion: { in: [true, false] }
   validates :start_unemployment_at, presence: true, if: :unemployment?
   validate :start_date_cannot_be_in_the_future
   validate :end_date_cannot_be_before_start_date
@@ -27,16 +27,16 @@ class Document < ApplicationRecord
   end
 
   def start_date_cannot_be_in_the_future
-    if start_date.present? && start_date > Date.today 
+    if start_date.present? && start_date > Date.today
       errors.add(:start_date, "ne peut pas être une date future")
     end
     if old_start_date.present? && old_start_date > Date.today
       errors.add(:old_start_date, "ne peut pas être une date future")
     end
-    if start_unemployment_at.present? && start_unemployment_at > Date.today 
+    if start_unemployment_at.present? && start_unemployment_at > Date.today
       errors.add(:start_unemployment_at, "ne peut pas être une date future")
     end
-    if old_end_date.present? && old_end_date > Date.today 
+    if old_end_date.present? && old_end_date > Date.today
       errors.add(:old_end_date, "ne peut pas être une date future")
     end
   end
@@ -51,11 +51,11 @@ class Document < ApplicationRecord
   end
 
   def old_end_date_cannot_be_after_start_date
-    if old_end_date.present? && start_date.present? && old_end_date > start_date
-      errors.add(:old_end_date, "ne peut pas être après la date de début de V.I")
+    if old_end_date.present? && start_date.present? && old_end_date >= start_date
+      errors.add(:old_end_date, "ne peut pas être égale ou après la date de début de V.I")
     end
-    if old_start_date.present? && start_date.present? && old_start_date > start_date
-      errors.add(:old_start_date, "ne peut pas être après la date de début de V.I")
+    if old_start_date.present? && start_date.present? && old_start_date >= start_date
+      errors.add(:old_start_date, "ne peut pas être égale ou après la date de début de V.I")
     end
   end
 
