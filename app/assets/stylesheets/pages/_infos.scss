@@ -5,16 +5,18 @@ $box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
 
 
 .first-form {
-
   font-family: $text;
 }
 
 .first-form-img {
-  width: 55vh;
+  position: absolute;
+  bottom: 0;
+  width: 70%;
 }
 
 .first-form {
   margin-top: 10vh;
+  margin-bottom: 10vh;
   box-shadow: $box-shadow;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
@@ -23,6 +25,10 @@ $box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
   padding-top: 20px;
   padding-bottom: 0px;
 
+}
+
+.btn-submit {
+  margin-bottom: 5vh;
 }
 
 
@@ -48,7 +54,7 @@ h1 {
 }
 
 
-// ---------------- error page ---------------------
+// error page ---------------------
 
 
 
@@ -70,4 +76,18 @@ h1 {
   padding: 20px;
   z-index: 9999;
   text-align: center;
+  font-family: $text;
+  line-height: 25px;
 }
+
+.error-text-header {
+  font-family: $headers;
+  box-shadow: $box-shadow;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 9999;
+  text-align: center;
+}
+
