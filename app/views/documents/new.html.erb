@@ -1,6 +1,7 @@
 <div class="col-md-6 col-sm-8 co-12 offset-md-3 offset-sm-2 my-4" id="formId">
   <p class="text-alert mt-3">Attention ! En plus du dossier qu'on te permet de créer via cette Web-Application il faudra également que tu fournisses à Pôle-Emploi une attestation employeur (de ton ancien employeur) et le certificat d'accomplissement de ton V.I</p>
   <h1 class="text-center">Remplis les infos</h1>
+  <div class="form-text">
   <%= simple_form_for [@info, @document] do |f| %>
     <%= f.input :first_name, label: "Ton prénom" %>
     <%= f.input :last_name, label: "Ton nom" %>
@@ -18,6 +19,7 @@
       <%= f.input :start_unemployment_at, label: "Quand as-tu commencé à percevoir tes allocations chômage ?", as: :string, required: false, input_html: {class: "datepicker"}%>
     <% end %>
     <div class="text-center"> Si besoin, tu peux ajouter un ou plusieurs emplois (CDD, intérim ..) en plus de ton dernier emploi </div>
+  </div>
     <div class="text-center">
       <button type="button" class="btn-add mb-3" data-toggle="modal" data-target="#jobModal">
         +
@@ -29,7 +31,7 @@
       <% end %>
     </div>
     <div class="text-center mt-3">
-      <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
+      <input type="image" src="/assets/logo.png" class="btn-submit-logo" />
     </div>
   <% end %>
   <div class="modal fade" id="jobModal" tabindex="-1" role="dialog" aria-labelledby="jobModalLabel" aria-hidden="true">
