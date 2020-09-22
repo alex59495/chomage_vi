@@ -4,14 +4,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   overflow: hidden;
 }
 
 @media(min-width: 991px) {
   .text-home {
-    height: 20%;
     text-align: center;
     font-weight: bold;
     font-size: 28px;
@@ -22,12 +21,12 @@
 
 @media(max-width: 990px) {
   .text-home {
-    height: 10%;
     text-align: center;
     font-weight: bold;
     font-size: 24px;
     width: 80%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     color: $wintergreen;
     font-family: $home
   }
@@ -35,10 +34,14 @@
 
 
 .img-back {
-  height: 40%;
+  height: 50%;
 }
 
-.img-home {
-  height: 100%;
-  object-fit: cover;
+.back-home {
+  background-image: url("background-home.jpg");
+  height: 60%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: -9999;
 }
