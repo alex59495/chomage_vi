@@ -9,12 +9,33 @@
   overflow: hidden;
 }
 
-.text-home {
-  height: 10%;
+@media(min-width: 991px) {
+  .text-home {
+    height: 20%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    color: $wintergreen;
+    font-family: $home
+  }
 }
 
+@media(max-width: 990px) {
+  .text-home {
+    height: 10%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    width: 80%;
+    margin: auto;
+    color: $wintergreen;
+    font-family: $home
+  }
+}
+
+
 .img-back {
-  height: 45%;
+  height: 40%;
 }
 
 .img-home {
