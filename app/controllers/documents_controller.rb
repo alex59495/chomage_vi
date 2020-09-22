@@ -51,7 +51,7 @@ class DocumentsController < ApplicationController
     unemployment_calc(@document.start_date, @document.start_unemployment_at) if @document.start_unemployment_at
     if @document.save
       # Si les jours restant sont négatifs, redirige vers la page d'erreur
-      if @unemployment_days_remaining.negative?
+      if @unemployment_days_remaining.present? && @unemployment_days_remaining.negative?
         redirect_to error_path(key: :not_anymore)
       # Si la personne a cumulé moins de 180 jours de travail sur les 2 dernières années elle n'a pas le droit au chômage
       elsif @days_worked.nil? || @days_worked >= 180

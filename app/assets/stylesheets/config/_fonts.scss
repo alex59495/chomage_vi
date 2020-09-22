@@ -1,6 +1,7 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script:wght@700&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
@@ -9,6 +10,7 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 // We are using the fonts below
 $text: "Roboto", "sans-serif";
 $headers: "Roboto Mono", "monospace";
+$home: 'Oleo Script', cursive;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
