@@ -1,0 +1,11 @@
+<div class="container-other-jobs">
+  <div class="title-other-jobs">Autres(s) emploi(s) :</div>
+  <% @info.jobs.each do |job| %>
+    <div class="card-job d-flex">
+      <%= job.company %> - <%= job.work %> - <%= l job.start_at %> / <%= l job.end_at %>
+      <%= link_to info_job_path(@info, job), method: :delete, data: { confirm: "Supprimer ce travail ?" }, class: "icon-trash ml-3 mt-1", id: "iconDelete", remote: true do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+    </div>
+  <% end %>
+</div>

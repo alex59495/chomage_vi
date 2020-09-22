@@ -1,2 +1,5 @@
-console.log("hi")
 document.getElementById("jobModal").innerHTML = "<%= escape_javascript(render 'documents/modal_job') %>";
+
+flatpickr(".datepicker", {
+  altInput: true,
+});

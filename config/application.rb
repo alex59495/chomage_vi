@@ -8,6 +8,10 @@ Bundler.require(*Rails.groups)
 
 module ChomageVi
   class Application < Rails::Application
+    # Autorize to rewrite the errors page
+    config.exceptions_app = self.routes
+    
+    # Add french as the default language
     config.i18n.default_locale = :fr
 
     config.generators do |generate|

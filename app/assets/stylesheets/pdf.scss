@@ -1,0 +1,18 @@
+.page-break { 
+  display:block;
+  clear:both; 
+  page-break-after:always; 
+ }
+
+ .d-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+
+ .footer-text {
+   width: 900px;
+   text-align: center;
+ }

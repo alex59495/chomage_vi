@@ -1,4 +1,6 @@
-<div class="home d-flex flex-column justify-content-center align-items-center">
-    <%= link_to image_tag("/assets/logo.png", class: 'button-logo'), new_info_path %>
-    <img src="/assets/background-home2.jpg" alt="">
+<div class="home">
+    <%= link_to image_tag("/assets/logo.png", class: 'button-logo'), new_info_path, class: "img-back" %>
+    <div class="img-back">
+      <%= image_tag('background-home2.jpg', class: 'img-home') %>
+    </div>
 </div>
