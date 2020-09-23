@@ -11,12 +11,12 @@
     <%= f.input :start_date, label: "Date à laquelle tu as commencé ton V.I", as: :string, input_html: {class: "datepicker"} %>
     <%= f.input :end_date, label: "Date à laquelle tu as terminé ton V.I", as: :string, input_html: {class: "datepicker"} %>
     <% if @info.unemployment == "Non" %>
-      <%= f.input :old_company, label: "Ton dernier employeur avant ton V.I" %>
-      <%= f.input :old_work, label: "Intitulé de ton ancien poste" %>
-      <%= f.input :old_start_date, label: "Date de début de ton ancien poste", as: :string, input_html: {class: "datepicker"} %>
-      <%= f.input :old_end_date, label: "Date de fin de ton ancien poste", as: :string, input_html: {class: "datepicker"}%>
+      <%= f.input :old_company, required: true, label: "Ton dernier employeur avant ton V.I" %>
+      <%= f.input :old_work, required: true, label: "Intitulé de ton ancien poste" %>
+      <%= f.input :old_start_date, required: true, label: "Date de début de ton ancien poste", as: :string, input_html: {class: "datepicker"} %>
+      <%= f.input :old_end_date, required: true, label: "Date de fin de ton ancien poste", as: :string, input_html: {class: "datepicker"}%>
     <% else %>
-      <%= f.input :start_unemployment_at, label: "Quand as-tu commencé à percevoir tes allocations chômage ?", as: :string, input_html: {class: "datepicker"}%>
+      <%= f.input :start_unemployment_at, label: "Quand as-tu commencé à percevoir tes allocations chômage ?", as: :string, required: true, input_html: {class: "datepicker"}%>
     <% end %>
     <div class="text-center"> Si besoin, tu peux ajouter un ou plusieurs emplois (CDD, intérim ..) en plus de ton dernier emploi </div>
   </div>

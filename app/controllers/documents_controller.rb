@@ -35,13 +35,14 @@ class DocumentsController < ApplicationController
 
   def new
     @job = Job.new
-    @document = Document.new
-    unemployment?
+    @info = Info.find(params[:info_id])
+    @info.unemployment == "Oui" ? @document = Document.new(unemployment: true) : @document = Document.new(unemployment: false)
   end
 
   def create
     @document = Document.new(params_document)
-    unemployment?
+    @info = Info.find(params[:info_id])
+    @info.unemployment == "Oui" ? @document.unemployment = true : @document.unemployment = false
     @job = Job.new
     @document.info_id = params[:info_id]
     @days_worked = (@document.old_end_date - @document.verify_start_date).to_i unless @document.old_end_date.nil?
@@ -63,11 +64,6 @@ class DocumentsController < ApplicationController
   end
   
   private
-
-  def unemployment?
-    @info = Info.find(params[:info_id])
-    @info.unemployment == "Oui" ? @document.unemployment = true : @document.unemployment = false
-  end
 
   def unemployment_calc(start_date, start_unemployment_at)
     @unemployment_days_paid = (start_date - start_unemployment_at).to_i

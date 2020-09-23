@@ -7,12 +7,12 @@ class Document < ApplicationRecord
   validates :work_type, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :old_company, presence: true, unless: :unemployment?
-  validates :old_work, presence: true, unless: :unemployment?
-  validates :old_start_date, presence: true, unless: :unemployment?
-  validates :old_end_date, presence: true, unless: :unemployment?
+  validates :old_company, presence: true
+  validates :old_work, presence: true, unless: :unemployed?
+  validates :old_start_date, presence: true, unless: :unemployed?
+  validates :old_end_date, presence: true, unless: :unemployed?
   validates :unemployment, inclusion: { in: [true, false] }
-  validates :start_unemployment_at, presence: true, if: :unemployment?
+  validates :start_unemployment_at, presence: true, if: :unemployed?
   validate :start_date_cannot_be_in_the_future
   validate :end_date_cannot_be_before_start_date
   validate :old_end_date_cannot_be_after_start_date
@@ -22,7 +22,7 @@ class Document < ApplicationRecord
   validate :jobs_validation
   belongs_to :info
 
-  def unemployment?
+  def unemployed?
     unemployment == true
   end
 
