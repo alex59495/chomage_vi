@@ -18,7 +18,9 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @info = Info.find(params[:info_id])
     @job.destroy
-    redirect_to new_info_document_path(params[:info_id])
+    respond_to do |format|
+      format.js { render 'jobs/create'}
+    end
   end
 
   private
