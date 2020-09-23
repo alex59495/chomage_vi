@@ -15,16 +15,16 @@
       <%= f.input :old_work, required: true, label: "Intitulé de ton ancien poste" %>
       <%= f.input :old_start_date, required: true, label: "Date de début de ton dernier poste", as: :string, input_html: {class: "datepicker"} %>
       <%= f.input :old_end_date, required: true, label: "Date de fin de ton dernier poste", as: :string, input_html: {class: "datepicker"}%>
+      <div class="text-center"> Attention ! Si tu as eu plusieurs emplois durant les 24 mois qui ont précédé ton V.I tu dois ajouter les autres emplois en cliquant sur le bouton ci-dessous</div>
+      <div class="text-center">
+        <button type="button" class="btn-add mb-3" data-toggle="modal" data-target="#jobModal">
+          +
+        </button>
+      </div>
     <% else %>
       <%= f.input :start_unemployment_at, label: "Quand as-tu commencé à percevoir tes allocations chômage ?", as: :string, required: true, input_html: {class: "datepicker"}%>
     <% end %>
-    <div class="text-center"> Attention ! Si tu as eu plusieurs emplois durant les 24 mois qui ont précédé ton V.I tu dois ajouter les autres emplois en cliquant sur le bouton ci-dessous</div>
   </div>
-    <div class="text-center">
-      <button type="button" class="btn-add mb-3" data-toggle="modal" data-target="#jobModal">
-        +
-      </button>
-    </div>
     <div id="containerJob">
       <%= render 'documents/container_other_jobs' %>
     </div>

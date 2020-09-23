@@ -59,6 +59,7 @@ class DocumentsController < ApplicationController
         redirect_to error_path(key: :not_enough)
       end
     else
+      flash[:alert] = 'Le formulaire a été mal rempli, merci de vérifier les infos.'
       render(:new)
     end
   end

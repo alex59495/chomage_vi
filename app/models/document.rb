@@ -7,7 +7,7 @@ class Document < ApplicationRecord
   validates :work_type, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :old_company, presence: true
+  validates :old_company, presence: true, unless: :unemployed?
   validates :old_work, presence: true, unless: :unemployed?
   validates :old_start_date, presence: true, unless: :unemployed?
   validates :old_end_date, presence: true, unless: :unemployed?
