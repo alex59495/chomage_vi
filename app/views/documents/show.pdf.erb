@@ -27,7 +27,7 @@
       Pour ma part j’ai effectué mon V.I au sein de <%= @document.company %> pendant <b><%= @duration %> mois</b> entre le <%= "#{I18n.with_locale("fr") { I18n.l(@document.start_date, format: "%e %B %Y")}} et le #{I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")}}" %> en tant que <%= @document.work_type %> : « <%= @document.work %> ».
     </div>
     <div class="mb-3">
-      Mon contrat V.I a donc pris fin au <b><%= I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")} %> </b>(cf Certificat d’accomplissement de volontariat civil à l’étranger).
+      Mon contrat V.I a donc pris fin au <b><%= I18n.with_locale("fr") { I18n.l(@document.end_date, format: "%e %B %Y")} %> </b><i style="font-size: 13px" class="ml-1">(cf Certificat d’accomplissement de volontariat civil à l’étranger)</i>.
     </div>
     <h4>3.	Le V.I reconnu comme service civique</h4>
     <div class="mb-1">
