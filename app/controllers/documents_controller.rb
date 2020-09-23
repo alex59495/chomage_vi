@@ -1,12 +1,13 @@
 class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
-    @info = Info.find(params[:info_id])    
+    @info = Info.find(params[:info_id])
     @days_worked = (@document.old_end_date - @document.verify_start_date).to_i unless @document.old_end_date.nil?
     if @document.start_unemployment_at
       unemployment_calc(@document.start_date, @document.start_unemployment_at)
     elsif @document.info.jobs.present?
       @days_worked += @document.days_worked_other_jobs_calc
+      @days_worked = 730 if @days_worked > 730
       @document.recalculate_jobs
     end
     @duration = (@document.end_date - @document.start_date).to_i / 30
