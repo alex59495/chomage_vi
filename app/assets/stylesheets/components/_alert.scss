@@ -5,8 +5,14 @@
   z-index: 1000;
 }
 
+.text-flashes {
+  background-color: rgba(255, 233, 204, 0.8);
+  border: black solid 1px;
+  font-weight: bold;
+}
+
 .text-alert {
   text-align: center;
   color: red;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.3)
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
 }

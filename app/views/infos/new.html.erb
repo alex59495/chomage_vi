@@ -1,19 +1,20 @@
-<div class="page-container d-flex flex-wrap justify-content-center align-items-center">
-  <div class="img-form">
-    <img src="/assets/moneyface.png" alt="" class="first-form-img my-3">
-  </div>
-  <div class="first-form m-3">
-    <h1 class="text-center">Quelques petites infos avant de commencer</h1>
-    <br>
-    <%= simple_form_for @info, url: infos_path do |f| %>
-      <%= f.input :work, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu travaillé au moins 6 moins lors des deux années qui ont précédées ton VI ?" %>
-      <%= f.input :unemployment, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu touché le chômage entre la fin de ton dernier contrat et le début du VI ?" %>
-      <span id="collapse_section" class="d-none">
-        <%= f.input :days_unemployment, label: "Quelle était la durée totale de cette allocation chômage ? (entre 180 et 730 jours)" %>
-      </span>
-      <div class="text-center">
-        <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
-      </div>
-    <% end %>
+
+<div class="page-container content">
+  <img src="/assets/form-img.png" alt="" class="first-form-img">
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="first-form m-3">
+      <h1 class="text-center">Quelques petites infos avant de commencer</h1>
+      <br>
+      <%= simple_form_for @info, url: infos_path do |f| %>
+        <%= f.input :work, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu travaillé au moins 6 mois (stage non-compris) lors des deux années qui ont précédé ton VI ?" %>
+        <%= f.input :unemployment, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu touché le chômage entre la fin de ton dernier contrat et le début du VI ?" %>
+        <span id="collapse_section" class="d-none">
+          <%= f.input :days_unemployment, label: "Quelle était la durée totale de cette allocation chômage ? (entre 182 et 730 jours)" %>
+        </span>
+        <div class="text-center mb-3">
+          <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

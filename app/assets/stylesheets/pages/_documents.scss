@@ -16,6 +16,7 @@
 
 h1 {
   font-size: 20px;
+  font-family: $headers;
 }
 
 h3 {
@@ -27,9 +28,11 @@ h4 {
   font-weight: bold;
 }
 
+.form-text {
+  font-family: $text;
+}
+
 .container {
-  background-image: url("background2.jpg");
-  background-position: cover;
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -45,4 +48,15 @@ body {
 .title-other-jobs {
   font: 20px black;
   margin-bottom: 5px;
+}
+
+.btn-add {
+  font-size: 20px;
+  border-radius: 50px;
+  width: 50px;
+  margin-top: 10px;
+}
+
+.logo-img {
+  width: 20vh;
 }

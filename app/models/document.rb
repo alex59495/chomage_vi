@@ -7,30 +7,36 @@ class Document < ApplicationRecord
   validates :work_type, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validates :old_company, presence: true
-  validates :old_work, presence: true
-  validates :old_start_date, presence: true
-  validates :old_end_date, presence: true
+  validates :old_company, presence: true, unless: :unemployed?
+  validates :old_work, presence: true, unless: :unemployed?
+  validates :old_start_date, presence: true, unless: :unemployed?
+  validates :old_end_date, presence: true, unless: :unemployed?
+  validates :unemployment, inclusion: { in: [true, false] }
+  validates :start_unemployment_at, presence: true, if: :unemployed?
   validate :start_date_cannot_be_in_the_future
   validate :end_date_cannot_be_before_start_date
   validate :old_end_date_cannot_be_after_start_date
   validate :end_date_cannot_be_too_big
   validate :start_unemployment_at_cannot_be_after_start_date
-  validate :start_unemployment_at_cannot_be_before_old_end_date
+  # validate :start_unemployment_at_cannot_be_before_old_end_date, if: :unemployment?
   validate :jobs_validation
   belongs_to :info
 
+  def unemployed?
+    unemployment == true
+  end
+
   def start_date_cannot_be_in_the_future
-    if start_date.present? && start_date > Date.today 
+    if start_date.present? && start_date > Date.today
       errors.add(:start_date, "ne peut pas être une date future")
     end
     if old_start_date.present? && old_start_date > Date.today
       errors.add(:old_start_date, "ne peut pas être une date future")
     end
-    if start_unemployment_at.present? && start_unemployment_at > Date.today 
+    if start_unemployment_at.present? && start_unemployment_at > Date.today
       errors.add(:start_unemployment_at, "ne peut pas être une date future")
     end
-    if old_end_date.present? && old_end_date > Date.today 
+    if old_end_date.present? && old_end_date > Date.today
       errors.add(:old_end_date, "ne peut pas être une date future")
     end
   end
@@ -46,24 +52,24 @@ class Document < ApplicationRecord
 
   def old_end_date_cannot_be_after_start_date
     if old_end_date.present? && start_date.present? && old_end_date >= start_date
-      errors.add(:old_end_date, "ne peut pas être après la date de début de V.I")
+      errors.add(:old_end_date, "ne peut pas être égale ou après la date de début de V.I")
     end
     if old_start_date.present? && start_date.present? && old_start_date >= start_date
-      errors.add(:old_start_date, "ne peut pas être après la date de début de V.I")
+      errors.add(:old_start_date, "ne peut pas être égale ou après la date de début de V.I")
     end
   end
 
   def start_unemployment_at_cannot_be_after_start_date
     if start_unemployment_at.present? && start_unemployment_at >= start_date
-      errors.add(:start_unemployment_at, "ne peut pas être après la date de début de V.I")
+      errors.add(:start_unemployment_at, "ne peut pas être égale ou après la date de début de V.I")
     end
   end
 
-  def start_unemployment_at_cannot_be_before_old_end_date
-    if start_unemployment_at.present? && start_unemployment_at < old_end_date
-      errors.add(:start_unemployment_at, "ne peut pas être avant la date de fin de dernier emploi")
-    end
-  end
+  # def start_unemployment_at_cannot_be_before_old_end_date
+  #   if start_unemployment_at.present? && start_unemployment_at < old_end_date
+  #     errors.add(:start_unemployment_at, "ne peut pas être avant la date de fin de dernier emploi")
+  #   end
+  # end
 
   def end_date_cannot_be_too_big
     if end_date.present? && old_end_date.present? && end_date - old_end_date > 1080
@@ -83,7 +89,7 @@ class Document < ApplicationRecord
   end
 
   def verify_start_date
-    if old_start_date < start_date.advance(days: -730 + self.latency)
+    if old_start_date.present? && old_start_date < start_date.advance(days: -730 + self.latency)
       start_date.advance(days: -730 + self.latency)
     else
       old_start_date

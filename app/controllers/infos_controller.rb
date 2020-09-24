@@ -12,6 +12,7 @@ class InfosController < ApplicationController
         redirect_to error_path
       end
     else
+      flash.now.alert = 'Le formulaire a été mal rempli, merci de vérifier les infos.'
       render(:new)
     end
   end

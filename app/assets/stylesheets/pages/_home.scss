@@ -4,16 +4,46 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   overflow: hidden;
 }
+
+@media(min-width: 991px) {
+  .text-home {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: $wintergreen;
+    font-family: $home
+  }
+}
+
+@media(max-width: 990px) {
+  .text-home {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: $wintergreen;
+    font-family: $home
+  }
+}
+
 
 .img-back {
   height: 50%;
 }
 
-.img-home {
-  height: 100%;
-  object-fit: cover;
+.back-home {
+  background-image: url("background-home.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: -9999;
 }
