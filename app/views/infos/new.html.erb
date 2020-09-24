@@ -9,7 +9,7 @@
         <%= f.input :work, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu travaillé au moins 6 mois en France (stage non-compris) lors des deux années qui ont précédé ton VI ?" %>
         <%= f.input :unemployment, collection: Info::REPONSE, as: :radio_buttons, label: "As-tu touché le chômage entre la fin de ton dernier contrat et le début du VI ?" %>
         <span id="collapse_section" class="d-none">
-          <%= f.input :days_unemployment, input_html: { min: '130', max: '730', step: 'any' }, label: "Quelle était la durée totale de cette allocation chômage ? (entre 130 et 730 jours)<br> <small class='red-alert'><strong>Attention !</strong> On parle bien ici de la durée totale de l'allocation, pas des jours dont vous avez déjà bénéficiés.</small>".html_safe %>
+          <%= f.input :days_unemployment, input_html: { min: '130', max: '730', step: 'any' }, label: "Quelle était la durée totale de cette allocation chômage ? (entre 130 et 730 jours)<br> <small class='red-alert'><strong>Attention !</strong> On parle bien ici de la durée totale de l'allocation, pas des jours dont tu as déjà bénéficié.</small>".html_safe %>
         </span>
         <div class="text-center mb-3">
           <%= f.submit "Gratte ton chômage !", class: "btn-submit" %>
