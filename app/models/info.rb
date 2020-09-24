@@ -8,8 +8,8 @@ class Info < ApplicationRecord
   has_many :jobs
 
   def unemployment_max_min
-    if days_unemployment.present? && unemployment == "Oui" && (days_unemployment > 730 || days_unemployment < 182) 
-      errors.add(:days_unemployment, "doit être comprise entre 182 et 730 jours")
+    if days_unemployment.present? && unemployment == "Oui" && (days_unemployment > 730 || days_unemployment < 130) 
+      errors.add(:days_unemployment, "doit être comprise entre 130 et 730 jours")
     end
   end
 
