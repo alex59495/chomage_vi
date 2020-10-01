@@ -12,12 +12,11 @@ class DocumentsController < ApplicationController
     end
     @duration = (@document.end_date - @document.start_date).to_i / 30
     respond_to do |format|
-      format.html
       format.pdf do
         render(
           pdf: 'document',
           enable_local_file_access: true,
-          encoding: 'utf8',
+          encoding: 'UTF-8',
           template: 'documents/show.pdf.erb',
           layout: 'pdf.html.erb',
           footer: {
@@ -49,19 +48,19 @@ class DocumentsController < ApplicationController
     @days_worked = (@document.old_end_date - @document.verify_start_date).to_i unless @document.old_end_date.nil?
     @days_worked += @document.days_worked_other_jobs_calc if @document.info.jobs.present?
     unemployment_calc(@document.start_date, @document.start_unemployment_at) if @document.start_unemployment_at
-    if @document.save
-      # Si les jours restant sont négatifs, redirige vers la page d'erreur
-      if @unemployment_days_remaining.present? && @unemployment_days_remaining.negative?
-        redirect_to error_path(key: :not_anymore)
-      # Si la personne a cumulé moins de 180 jours de travail sur les 2 dernières années elle n'a pas le droit au chômage
-      elsif @days_worked.nil? || @days_worked >= 180
+    # Si le nombre de jours restant est négatif
+    if @unemployment_days_remaining.present? && @unemployment_days_remaining.negative?
+      redirect_to error_path(key: :not_anymore)
+    # Si la personne n'a pas cotisé au moins 4 mois avant nov 2019 et/ou 6 mois après nov 2019 (+ 4 mois pour la période 1/8/2020 - 31/12/2020 avec le Covid)
+    elsif ((@days_worked < 130 && @document.old_end_date < Date.parse('1/9/2019'))  || (@days_worked < 130 && @document.old_end_date.between?(Date.parse('1/8/2020'),Date.parse('31/12/2020'))) || @days_worked < 180 && @document.old_end_date.between?(Date.parse('1/8/2020'),Date.parse('31/12/2020')) == false && @document.old_end_date >= Date.parse('1/9/2019'))
+      redirect_to error_path(key: :not_enough)
+    else
+      if @document.save        
         redirect_to info_document_path(@info, @document, format: :pdf)
       else
-        redirect_to error_path(key: :not_enough)
+        flash.now.alert = 'Le formulaire a été mal rempli, merci de vérifier les infos.'
+        render(:new)
       end
-    else
-      flash.now.alert = 'Le formulaire a été mal rempli, merci de vérifier les infos.'
-      render(:new)
     end
   end
   
