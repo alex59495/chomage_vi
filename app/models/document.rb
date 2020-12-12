@@ -118,13 +118,8 @@ class Document < ApplicationRecord
   def recalculate_jobs
     info.jobs.each do |job| 
       if job.start_at < start_date.advance(days: -730 + self.latency)
-        job.start_at = start_date.advance(days: -730 + self.latency)
+        job.start_recalc = start_date.advance(days: -730 + self.latency)
         job.save
-        if job.start_at > job.end_at
-          job.destroy
-        end
-      else
-        job.start_at
       end
     end
   end
