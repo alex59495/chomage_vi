@@ -84,7 +84,7 @@ class Document < ApplicationRecord
     days_worked = 0
     info.jobs.each do |job|
       job.start_date = job.start_recalc if job.start_recalc
-      days_worked += (job.end_at - job.start_date).to_i
+      days_worked += (job.end_at - job.start_at).to_i
     end
     days_worked
   end
