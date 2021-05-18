@@ -51,8 +51,13 @@ class DocumentsController < ApplicationController
     # Si le nombre de jours restant est négatif
     if @unemployment_days_remaining.present? && @unemployment_days_remaining.negative?
       redirect_to error_path(key: :not_anymore)
-    # Si la personne n'a pas cotisé au moins 4 mois avant nov 2019 et/ou 6 mois après nov 2019 (+ 4 mois pour la période 1/8/2020 - 31/12/2020 avec le Covid)
-    elsif (@days_worked.present? && ((@days_worked < 130 && @document.old_end_date < Date.parse('1/9/2019'))  || (@days_worked < 130 && @document.old_end_date.between?(Date.parse('1/8/2020'),Date.parse('31/12/2020'))) || (@days_worked < 180 && @document.old_end_date.between?(Date.parse('1/8/2020'),Date.parse('31/12/2020')) == false && @document.old_end_date >= Date.parse('1/9/2019'))))
+    # Si la personne n'a pas cotisé au moins 4 mois avant nov 2019 et/ou 6 mois après nov 2019 (+ 4 mois pour la période 1/3/2020 - 31/05/2020 et 30/10/202 - 30/04/2021 avec le Covid)
+    elsif (
+      @days_worked.present? && 
+      ((@days_worked < 130 && @document.old_end_date < Date.parse('1/9/2019'))  
+        || (@days_worked < 130 && @document.old_end_date.between?(Date.parse('1/3/2020'),Date.parse('31/5/2020'))) 
+        || (@days_worked < 130 && @document.old_end_date.between?(Date.parse('30/10/2020'),Date.parse('30/04/2021')))
+        || (@days_worked < 180 && @document.old_end_date.between?(Date.parse('1/3/2020'),Date.parse('31/5/2020')) == false && @document.old_end_date.between?(Date.parse('30/10/2020'),Date.parse('30/04/2021')) == false && @document.old_end_date >= Date.parse('1/9/2019'))))
       redirect_to error_path(key: :not_enough)
     else
       if @document.save        
